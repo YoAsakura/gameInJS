@@ -78,7 +78,7 @@ playerBox.addEventListener('mousedown', function (evt) {
 
 function startGame() {
     hookMove();
-    let hookStart = setInterval(() => hook.style.top = randomInteger(0, 400) + 'px', 500);
+    let hookStart = setInterval(() => hook.style.top = randomInteger(0, 400) + 'px', 800);
     let cheinStart = setInterval(() => chein.style.top = (parseInt(hook.style.top) + 30) + 'px', 800);
     let stopwatch = setInterval(() => timeSet(), 800);
 
