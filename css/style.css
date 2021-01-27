@@ -1,15 +1,157 @@
-.game-box_wrapper {
-    padding: 50px;
+body {
+    background-color: black;
 }
 
-.game-box {
+.game {
+    padding: 60px;
+}
+
+.game_box {
+    position: relative;
     width: 1000px;
     height: 500px;
-    background-color: tomato;
+    background: url(/img/map.jpg) black;
     margin: 0 auto;
+    overflow: hidden;
 }
 
-.game_person {
-    width: 50px;
-    height: 50px;
+.player {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-image: url(/img/sinecurama.png);
+    background-size: cover;
+    top: 250px;
+    left: 50px;
+    cursor: pointer;
+}
+
+.die-heading {
+    position: absolute;
+    display: none;
+    color: rgb(202, 66, 42);
+    left: 43%;
+    top: 20%;
+    font-size: 60px;
+    font-weight: normal;
+    text-shadow: 1px -2px 2px #000000;
+    z-index: 3;
+}
+
+.game-creator {
+    position: absolute;
+    color: rgb(202, 66, 42);
+    left: 43%;
+    top: 40%;
+    font-size: 30px;
+    font-weight: normal;
+    text-shadow: 1px -2px 2px #000000;
+    z-index: 3;
+}
+
+.disable-content {
+    display: none;
+}
+
+.show-content {
+    animation: dieAnimation 4s linear forwards;
+}
+
+.show-text {
+    display: block;
+    animation: dieText 8s linear forwards;
+}
+
+.hook {
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    background-image: url(/img/hook.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    right: -101px;
+    z-index: 3;
+}
+
+.chein {
+    position: absolute;
+    right: -1000px;
+    top: 30px;
+    width: 1000px;
+    height: 10px;
+    background-image: url(/img/chain.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    z-index: 2;
+}
+
+.hook-move {
+    animation: HookMove 1.5s ease-in infinite;
+}
+
+.chein-move {
+    animation: cheinMove 1.5s ease-in infinite;
+}
+
+@keyframes HookMove {
+    0% {
+        right: -100px
+    }
+
+    50% {
+        right: 200px
+    }
+
+    80% {
+        right: 950px
+    }
+
+    100% {
+        right: -100px
+    }
+}
+
+@keyframes cheinMove {
+    0% {
+        right: -1100px
+    }
+
+    50% {
+        right: -800px
+    }
+
+    80% {
+        right: -50px
+    }
+
+    100% {
+        right: -1100px
+    }
+}
+
+@keyframes dieAnimation {
+    0% {
+        filter: brightness(100%);
+    }
+
+    100% {
+        filter: brightness(0);
+    }
+}
+
+@keyframes dieText {
+    0% {
+        opacity: 0;
+        transform: scale(1)
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.3)
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.5)
+    }
 }
