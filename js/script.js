@@ -116,6 +116,9 @@ function startGame() {
         score.classList.remove('show-text');
         hook.classList.remove('hook-move');
         chein.classList.remove('chein-move');
+        TIME = 0;
+        count.textContent = TIME;
+        score.textContent = 'Ваш счет: ' + TIME;
     }
 
     repeatBtn.addEventListener('click', function(evt){
