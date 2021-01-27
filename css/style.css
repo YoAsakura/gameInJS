@@ -31,7 +31,7 @@ body {
     display: none;
     color: rgb(202, 66, 42);
     left: 41%;
-    top: 35%;
+    top: 20%;
     font-size: 60px;
     font-weight: normal;
     text-shadow: 1px -2px 2px #000000;
@@ -43,7 +43,7 @@ body {
     display: none;
     color: rgb(202, 66, 42);
     left: 45%;
-    top: 60%;
+    top: 35%;
     font-size: 30px;
     font-weight: normal;
     text-shadow: 1px -2px 2px #000000;
@@ -54,7 +54,7 @@ body {
     display: none;
     position: absolute;
     left: 41%;
-    top: 75%;
+    top: 50%;
     font-size: 30px;
     border: none;
     background-color: black;
