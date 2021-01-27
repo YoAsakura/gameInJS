@@ -10,7 +10,7 @@ body {
     position: relative;
     width: 1000px;
     height: 500px;
-    background: url(/img/map.jpg) black;
+    background: url(../img/map.jpg) black;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -19,7 +19,7 @@ body {
     position: absolute;
     width: 70px;
     height: 70px;
-    background-image: url(/img/sinecurama.png);
+    background-image: url(../img/sinecurama.png);
     background-size: cover;
     top: 250px;
     left: 50px;
@@ -66,7 +66,7 @@ body {
     position: absolute;
     width: 100px;
     height: 60px;
-    background-image: url(/img/hook.png);
+    background-image: url(../img/hook.png);
     background-size: cover;
     background-repeat: no-repeat;
     right: -101px;
@@ -79,7 +79,7 @@ body {
     top: 30px;
     width: 1000px;
     height: 10px;
-    background-image: url(/img/chain.png);
+    background-image: url(../img/chain.png);
     background-repeat: repeat-x;
     background-size: contain;
     z-index: 2;
