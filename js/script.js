@@ -3,6 +3,11 @@ const hook = document.querySelector('.hook');
 const chein = document.querySelector('.chein');
 const gameBox = document.querySelector('.game');
 const dieText = document.querySelector('.die-heading');
+const count = document.querySelector('.count');
+const repeatBtn = document.querySelector('.repeat-btn');
+const score = document.querySelector('.score');
+
+var TIME = 0;
 var COORDINATE_MIN_X = 70;
 var COORDINATE_MAX_X = 1000;
 var COORDINATE_MIN_Y = 0;
@@ -19,13 +24,6 @@ window.addEventListener('keydown', startGame);
 function hookMove() {
     hook.classList.add('hook-move');
     chein.classList.add('chein-move');
-}
-
-function startGame() {
-    hookMove();
-    setInterval(() => hook.style.top = randomInteger(0, 400) + 'px', 1500);
-    setInterval(() => chein.style.top = (parseInt(hook.style.top) + 30) + 'px', 1500);
-    window.removeEventListener('keydown', startGame);
 }
 
 playerBox.addEventListener('mousedown', function (evt) {
@@ -78,20 +76,60 @@ playerBox.addEventListener('mousedown', function (evt) {
     document.addEventListener('mouseup', onMouseUp);
 });
 
-function gameOverFoo() {
-    document.querySelector('.sound-break').play();
-    document.querySelector('.sound-die').play();
-    playerBox.classList.add('disable-content');
-    hook.classList.add('disable-content');
-    chein.classList.add('disable-content');
-    chein.classList.add('disable-content');
-    gameBox.classList.add('show-content');
-    dieText.classList.add('show-text');
-}
-let timer = setInterval(() => gameOver(), 5);
-function gameOver() {
-    if (((playerBox.offsetTop - 50) <= hook.offsetTop) && ((playerBox.offsetTop + 70) >= hook.offsetTop) && (playerBox.offsetLeft <= hook.offsetLeft) && ((playerBox.offsetLeft + 70) >= hook.offsetLeft)){
-        gameOverFoo();
-        clearTimeout(timer);
+function startGame() {
+    hookMove();
+    let hookStart = setInterval(() => hook.style.top = randomInteger(0, 400) + 'px', 1000);
+    let cheinStart = setInterval(() => chein.style.top = (parseInt(hook.style.top) + 30) + 'px', 1000);
+    let stopwatch = setInterval(() => timeSet(), 1000);
+
+    function timeSet() {
+        TIME++;
+        count.textContent = TIME;
+        score.textContent = 'Ваш счет: ' + TIME;
+    };
+
+    window.removeEventListener('keydown', startGame);
+
+    function gameOverFoo() {
+        document.querySelector('.sound-break').play();
+        document.querySelector('.sound-die').play();
+        playerBox.classList.add('disable-content');
+        hook.classList.add('disable-content');
+        chein.classList.add('disable-content');
+        gameBox.classList.add('show-content');
+        dieText.classList.add('show-text');
+        score.classList.add('show-text');
+        repeatBtn.classList.add('btn-repeat-anima');
+        clearInterval(timer);
+        clearInterval(stopwatch);
+        clearInterval(hookStart);
+        clearInterval(cheinStart);
     }
-};
+
+    function repeatGameFoo() {
+        playerBox.classList.remove('disable-content');
+        hook.classList.remove('disable-content');
+        chein.classList.remove('disable-content');
+        chein.classList.remove('disable-content');
+        gameBox.classList.remove('show-content');
+        dieText.classList.remove('show-text');
+        score.classList.remove('show-text');
+        hook.classList.remove('hook-move');
+        chein.classList.remove('chein-move');
+    }
+
+    repeatBtn.addEventListener('click', function(evt){
+        evt.preventDefault;
+        repeatBtn.classList.remove('btn-repeat-anima');
+        repeatGameFoo();
+        window.addEventListener('keydown', startGame);
+    });
+
+    
+    let timer = setInterval(() => gameOver(), 5);
+    function gameOver() {
+        if (((playerBox.offsetTop - 50) <= hook.offsetTop) && ((playerBox.offsetTop + 70) >= hook.offsetTop) && (playerBox.offsetLeft <= hook.offsetLeft) && ((playerBox.offsetLeft + 70) >= hook.offsetLeft)){
+            gameOverFoo();
+        }
+    };
+}
