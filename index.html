@@ -7,16 +7,18 @@
     <audio class="sound-break" src="sound/break.m4a"></audio>
     <audio class="sound-die" src="sound/die.mp3"></audio>
     <title>Игра на JS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/next.svg">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header></header>
     <main>
-        <h1 class="die-heading">YOU DIED</h1>
-        <p class="score"></p>
-        <button class="repeat-btn">Try again</button>
-            <section class="game">
+            <article class="game">
+                <p class="die-heading">YOU DIED</p>
+                <p class="start-game-text">Press F to START GAME</p>
+                <p class="score"></p>
+                <button class="repeat-btn">Try again</button>
                 <div class="game_box">
                     <div class="counter">
                     <span class="count">0</span>
@@ -25,8 +27,7 @@
                     <div class="hook"></div>
                     <div class="chein"></div>
                 </div>
-            </div>
-        </section>
+            </article>
     </main>
     <footer></footer>
     <script src="js/script.js"></script>
